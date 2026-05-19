@@ -1,5 +1,6 @@
 import React, { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
+import Navbar from "../components/Navbar";
 
 export default function SignUp() {
   const navigate = useNavigate();
@@ -18,66 +19,117 @@ export default function SignUp() {
     }
 
     // TODO: Send signup request to Spring Boot backend
-    navigate("/marketplace"); // On successful registration
+    navigate("/explore"); // On successful registration
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-yellow-100 via-orange-100 to-red-100 flex items-center justify-center px-4">
-      <div className="bg-white p-8 rounded-xl shadow-md w-full max-w-md">
-        <h2 className="text-2xl font-bold text-orange-700 mb-6 text-center">Create an Account</h2>
-        <form onSubmit={handleSubmit} className="space-y-4">
-          <input
-            type="text"
-            placeholder="Full Name"
-            value={name}
-            onChange={(e) => setName(e.target.value)}
-            required
-            className="w-full p-3 rounded-lg border border-orange-300 focus:outline-none focus:ring-2 focus:ring-orange-500"
-          />
-          <input
-            type="email"
-            placeholder="Email Address"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-            required
-            className="w-full p-3 rounded-lg border border-orange-300 focus:outline-none focus:ring-2 focus:ring-orange-500"
-          />
-          <input
-            type="tel"
-            placeholder="Phone Number"
-            value={phone}
-            onChange={(e) => setPhone(e.target.value)}
-            className="w-full p-3 rounded-lg border border-orange-300 focus:outline-none focus:ring-2 focus:ring-orange-500"
-          />
-          <input
-            type="password"
-            placeholder="Password"
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-            required
-            className="w-full p-3 rounded-lg border border-orange-300 focus:outline-none focus:ring-2 focus:ring-orange-500"
-          />
-          <input
-            type="password"
-            placeholder="Confirm Password"
-            value={confirmPassword}
-            onChange={(e) => setConfirmPassword(e.target.value)}
-            required
-            className="w-full p-3 rounded-lg border border-orange-300 focus:outline-none focus:ring-2 focus:ring-orange-500"
-          />
-          <button
-            type="submit"
-            className="w-full bg-orange-600 text-white py-3 rounded-lg hover:bg-orange-700 transition"
-          >
-            Sign Up
-          </button>
-        </form>
-        <p className="text-center text-sm text-gray-600 mt-4">
-          Already have an account?{" "}
-          <a href="/login" className="text-orange-700 hover:underline font-medium">
-            Log in
-          </a>
-        </p>
+    <div className="min-h-screen bg-slate-50 font-sans flex flex-col">
+      <Navbar />
+
+      <div className="flex-grow flex items-center justify-center relative overflow-hidden px-4 py-24">
+        {/* Background Decorative Blobs */}
+        <div className="absolute inset-0 overflow-hidden -z-10 pointer-events-none">
+          <div className="absolute top-1/4 right-1/4 w-[400px] h-[400px] bg-pink-200 rounded-full mix-blend-multiply filter blur-3xl opacity-50 animate-blob"></div>
+          <div className="absolute bottom-1/4 left-1/4 w-[400px] h-[400px] bg-purple-200 rounded-full mix-blend-multiply filter blur-3xl opacity-50 animate-blob animation-delay-2000"></div>
+        </div>
+
+        <div className="w-full max-w-xl bg-white/80 backdrop-blur-xl p-8 md:p-10 rounded-3xl shadow-xl border border-white/50 relative z-10">
+          <div className="text-center mb-8">
+            <h2 className="text-3xl font-extrabold text-slate-900 mb-2 tracking-tight">
+              Create an Account
+            </h2>
+            <p className="text-slate-500">
+              Join thousands of travelers exploring the world authentically.
+            </p>
+          </div>
+
+          <form onSubmit={handleSubmit} className="space-y-5">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
+              <div>
+                <label className="block text-sm font-semibold text-slate-900 mb-2">
+                  Full Name
+                </label>
+                <input
+                  type="text"
+                  placeholder="John Doe"
+                  className="w-full px-5 py-4 rounded-xl bg-slate-50 border border-slate-200 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent transition-all"
+                  value={name}
+                  onChange={(e) => setName(e.target.value)}
+                  required
+                />
+              </div>
+              <div>
+                <label className="block text-sm font-semibold text-slate-900 mb-2">
+                  Phone Number
+                </label>
+                <input
+                  type="tel"
+                  placeholder="+1 (555) 000-0000"
+                  className="w-full px-5 py-4 rounded-xl bg-slate-50 border border-slate-200 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent transition-all"
+                  value={phone}
+                  onChange={(e) => setPhone(e.target.value)}
+                />
+              </div>
+            </div>
+
+            <div>
+              <label className="block text-sm font-semibold text-slate-900 mb-2">
+                Email Address
+              </label>
+              <input
+                type="email"
+                placeholder="you@example.com"
+                className="w-full px-5 py-4 rounded-xl bg-slate-50 border border-slate-200 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent transition-all"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+                required
+              />
+            </div>
+
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
+              <div>
+                <label className="block text-sm font-semibold text-slate-900 mb-2">
+                  Password
+                </label>
+                <input
+                  type="password"
+                  placeholder="••••••••"
+                  className="w-full px-5 py-4 rounded-xl bg-slate-50 border border-slate-200 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent transition-all"
+                  value={password}
+                  onChange={(e) => setPassword(e.target.value)}
+                  required
+                />
+              </div>
+              <div>
+                <label className="block text-sm font-semibold text-slate-900 mb-2">
+                  Confirm Password
+                </label>
+                <input
+                  type="password"
+                  placeholder="••••••••"
+                  className="w-full px-5 py-4 rounded-xl bg-slate-50 border border-slate-200 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent transition-all"
+                  value={confirmPassword}
+                  onChange={(e) => setConfirmPassword(e.target.value)}
+                  required
+                />
+              </div>
+            </div>
+
+            <button
+              type="submit"
+              className="w-full py-4 mt-4 bg-slate-900 text-white font-bold rounded-xl hover:bg-slate-800 transition-all duration-300 shadow-lg hover:shadow-xl hover:-translate-y-0.5"
+            >
+              Sign Up
+            </button>
+          </form>
+
+          <p className="text-center text-sm text-slate-600 mt-8">
+            Already have an account?{" "}
+            <Link to="/login" className="text-purple-600 font-bold hover:text-purple-700 transition">
+              Log in
+            </Link>
+          </p>
+        </div>
       </div>
     </div>
   );

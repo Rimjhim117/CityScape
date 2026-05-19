@@ -21,18 +21,18 @@ export default function Home() {
         <div className="flex-1 space-y-8 z-10 text-center lg:text-left">
           <div className="inline-flex items-center px-4 py-2 bg-purple-100/50 backdrop-blur-md rounded-full text-purple-700 font-medium text-sm mb-4 border border-purple-200/50 shadow-sm">
             <span className="w-2 h-2 rounded-full bg-purple-600 mr-2 animate-pulse"></span>
-            Discover authentic global treasures
+            Discover hidden local gems
           </div>
           
           <h1 className="text-5xl lg:text-7xl font-extrabold text-slate-900 tracking-tight leading-[1.1]">
-            Global Goods, <br />
+            Travel Like a <br />
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-600 to-pink-500">
-              Local Heart.
+              Local.
             </span>
           </h1>
           
           <p className="text-lg lg:text-xl text-slate-600 max-w-2xl mx-auto lg:mx-0 leading-relaxed">
-            Experience the world's most vibrant markets from the comfort of your home. Curated, authentic, and directly supporting local artisans globally.
+            Discover the best local spots, unique specialties, and hidden businesses. Experience the true essence of your destination, far from the usual tourist traps.
           </p>
           
           <div className="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4 pt-4">
@@ -64,16 +64,7 @@ export default function Home() {
               className="w-full h-auto object-cover rounded-2xl"
             />
             
-            {/* Floating Glass Badge */}
-            <div className="absolute -bottom-6 -left-6 bg-white/70 backdrop-blur-xl border border-white/50 p-4 rounded-2xl shadow-xl flex items-center gap-4 animate-bounce-slow">
-              <div className="w-12 h-12 rounded-full bg-gradient-to-br from-green-400 to-emerald-600 flex items-center justify-center text-white font-bold text-xl">
-                ✓
-              </div>
-              <div>
-                <p className="text-slate-900 font-bold text-sm">100% Authentic</p>
-                <p className="text-slate-500 text-xs">Verified Artisans</p>
-              </div>
-            </div>
+
           </div>
         </div>
 

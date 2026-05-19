@@ -62,8 +62,8 @@ export default function Explore() {
             </span>
           </h1>
           <p className="text-lg text-slate-500 max-w-2xl mx-auto">
-            Select a continent and discover unique local goods from verified
-            artisans around the world.
+            Select a continent and discover hidden local specialties, authentic businesses,
+            and must-visit spots around the world.
           </p>
         </div>
 

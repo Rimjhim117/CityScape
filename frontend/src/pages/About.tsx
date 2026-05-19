@@ -5,37 +5,37 @@ import Navbar from "../components/Navbar";
 
 const stats = [
   { value: "50+", label: "Countries" },
-  { value: "10K+", label: "Artisans" },
-  { value: "25K+", label: "Products" },
+  { value: "10K+", label: "Hidden Gems" },
+  { value: "25K+", label: "Local Specialties" },
   { value: "6", label: "Continents" },
 ];
 
 const values = [
   {
-    title: "Global Reach",
+    title: "Discover Hidden Gems",
     description:
-      "We source directly from over 50 countries, bringing you authentic, culturally rich items you won't find anywhere else.",
+      "We help you discover unique local specialties and hidden spots across 50+ countries that aren't on typical tourist maps.",
     gradient: "from-purple-500 to-indigo-600",
   },
   {
-    title: "Sustainable Impact",
+    title: "Support Local Businesses",
     description:
-      "Every item is crafted with respect for the environment. We prioritize sustainable materials and eco-friendly practices.",
+      "By exploring with us, you direct your attention to authentic local businesses, uplifting communities instead of massive tourist chains.",
     gradient: "from-emerald-500 to-teal-600",
   },
   {
-    title: "Fair Trade First",
+    title: "Authentic Experiences",
     description:
-      "We guarantee fair compensation for all artisans. By cutting out the middleman, creators earn what they truly deserve.",
+      "We guarantee authentic cultural experiences, steering you away from tourist traps to where the locals actually go, eat, and shop.",
     gradient: "from-rose-500 to-pink-600",
   },
 ];
 
 const team = [
-  { name: "Local Weavers", region: "Southeast Asia", image: "/assets/Thailand.jpg" },
-  { name: "Pottery Artisans", region: "North Africa", image: "/assets/Morocco.jpg" },
-  { name: "Textile Makers", region: "South America", image: "/assets/Peru.jpg" },
-  { name: "Woodcraft Artists", region: "Oceania", image: "/assets/Fiji.jpg" },
+  { name: "Local Markets", region: "Southeast Asia", image: "/assets/Thailand.jpg" },
+  { name: "Cultural Treasures", region: "North Africa", image: "/assets/Morocco.jpg" },
+  { name: "Hidden Eateries", region: "South America", image: "/assets/Peru.jpg" },
+  { name: "Island Retreats", region: "Oceania", image: "/assets/Fiji.jpg" },
 ];
 
 export default function About() {
@@ -56,32 +56,16 @@ export default function About() {
             Our Story
           </p>
           <h1 className="text-4xl md:text-6xl font-extrabold text-slate-900 tracking-tight leading-[1.1] mb-6">
-            Bridging Cultures,{" "}
+            Discovering Cities,{" "}
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-600 to-pink-500">
-              One Product at a Time
+              Like a Local
             </span>
           </h1>
           <p className="text-lg md:text-xl text-slate-500 max-w-2xl mx-auto leading-relaxed">
-            We believe every handcrafted product carries a story worth sharing.
-            Our mission is to connect passionate artisans with conscious buyers
-            across the globe.
+            We believe true travel is about experiencing a destination like a local.
+            Our mission is to guide you to authentic spots, local specialties, and
+            hidden gems that tourists often miss.
           </p>
-        </div>
-      </section>
-
-      {/* ─── Stats Bar ─── */}
-      <section className="bg-slate-900 py-16">
-        <div className="max-w-6xl mx-auto px-6 grid grid-cols-2 md:grid-cols-4 gap-8">
-          {stats.map((s) => (
-            <div key={s.label} className="text-center">
-              <p className="text-4xl md:text-5xl font-extrabold text-white mb-2">
-                {s.value}
-              </p>
-              <p className="text-sm text-slate-400 font-medium uppercase tracking-widest">
-                {s.label}
-              </p>
-            </div>
-          ))}
         </div>
       </section>
 
@@ -130,7 +114,7 @@ export default function About() {
         <div className="absolute inset-0">
           <img
             src="/assets/India.jpg"
-            alt="Local artisan marketplace"
+            alt="Local marketplace"
             className="w-full h-full object-cover"
           />
           <div className="absolute inset-0 bg-gradient-to-r from-slate-900/95 via-slate-900/80 to-slate-900/50"></div>
@@ -142,15 +126,13 @@ export default function About() {
               Our Mission
             </h2>
             <p className="text-lg text-white/80 leading-relaxed mb-4">
-              To build a world where geographical borders don't limit economic
-              opportunity. We empower small-scale producers by providing them
-              with a global stage to showcase their heritage, talent, and
-              passion.
+              To redefine travel by helping visitors truly connect with their destination.
+              We guide you to authentic markets, cultural spots, and local businesses,
+              providing a platform for hidden places to shine on a global stage.
             </p>
             <p className="text-lg text-white/80 leading-relaxed mb-8">
-              Every purchase on our platform directly funds artisan communities,
-              preserves traditional crafts, and creates sustainable livelihoods
-              for families across the developing world.
+              By choosing authentic spots, you directly support local economies and
+              help preserve the true culture and heritage of every city you visit.
             </p>
             <Link
               to="/explore"
@@ -198,14 +180,14 @@ export default function About() {
         </div>
       </section>
 
-      {/* ─── Artisan Showcase ─── */}
+      {/* ─── Local Spotlight ─── */}
       <section className="max-w-6xl mx-auto px-6 py-24">
         <div className="text-center mb-16">
           <h2 className="text-3xl md:text-4xl font-extrabold text-slate-900 mb-4">
-            Meet the Makers
+            Discover What's Hidden
           </h2>
           <p className="text-slate-500 max-w-xl mx-auto">
-            The talented communities behind your favorite products.
+            Experience destinations through the eyes of the locals.
           </p>
         </div>
 
@@ -237,8 +219,7 @@ export default function About() {
             Ready to Discover Something Extraordinary?
           </h2>
           <p className="text-lg text-white/80 mb-8 max-w-xl mx-auto">
-            Join thousands of conscious shoppers supporting artisan communities
-            worldwide.
+            Join thousands of travelers exploring the world authentically.
           </p>
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
             <Link
