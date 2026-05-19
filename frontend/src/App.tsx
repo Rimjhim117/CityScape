@@ -5,6 +5,7 @@ import Explore from "./pages/Explore";
 import About from "./pages/About"; 
 import Login from "./pages/Login";
 import Signup from "./pages/Signup";
+import Profile from "./pages/Profile";
 import Marketplace from "./pages/Marketplace";
 import Continents from "./pages/Continents";
 import Contact from "./pages/Contact";
@@ -50,6 +51,37 @@ import Tonga from "./pages/Tonga";
 import Vanuatu from "./pages/Vanuatu"; 
 import SolomonIslands from "./pages/SolomonIslands";
 import Brazil from "./pages/Brazil";
+import Kenya from "./pages/Kenya";
+import Nigeria from "./pages/Nigeria";
+import SouthAfrica from "./pages/SouthAfrica";
+import Egypt from "./pages/Egypt";
+import Morocco from "./pages/Morocco";
+import Ghana from "./pages/Ghana";
+import Ethiopia from "./pages/Ethiopia";
+import Tanzania from "./pages/Tanzania";
+import Senegal from "./pages/Senegal";
+import Algeria from "./pages/Algeria";
+import Uganda from "./pages/Uganda";
+import Namibia from "./pages/Namibia";
+import UnitedStates from "./pages/UnitedStates";
+import Canada from "./pages/Canada";
+import Mexico from "./pages/Mexico";
+import Cuba from "./pages/Cuba";
+import Jamaica from "./pages/Jamaica";
+import CostaRica from "./pages/CostaRica";
+import Panama from "./pages/Panama";
+import Bahamas from "./pages/Bahamas";
+import Honduras from "./pages/Honduras";
+import DominicanRepublic from "./pages/DominicanRepublic";
+import Argentina from "./pages/Argentina";
+import Chile from "./pages/Chile";
+import Colombia from "./pages/Colombia";
+import Peru from "./pages/Peru";
+import Uruguay from "./pages/Uruguay";
+import Paraguay from "./pages/Paraguay";
+import Ecuador from "./pages/Ecuador";
+import Bolivia from "./pages/Bolivia";
+import Venezuela from "./pages/Venezuela";
 
 function App() {
   return (
@@ -64,6 +96,7 @@ function App() {
         <Route path="/continents" element={<Continents />} />
         <Route path="/contact" element={<Contact />} />
         <Route path="/country/:continent" element={<Country />} />
+        <Route path="/profile" element={<Profile />} />
         <Route path="/countries/India" element={<India />} />
         <Route path="/countries/japan" element={<Japan />} />
         <Route path="/countries/China" element={<China />} />
@@ -105,6 +138,43 @@ function App() {
         <Route path="/countries/vanuatu" element={<Vanuatu />} />
         <Route path="/countries/solomon-islands" element={<SolomonIslands />} />
         <Route path="/countries/brazil" element={<Brazil />} />
+        <Route path="/countries/Kenya" element={<Kenya />} />
+        <Route path="/countries/Nigeria" element={<Nigeria />} />
+        <Route path="/countries/South%20Africa" element={<SouthAfrica />} />
+        <Route path="/countries/South-Africa" element={<SouthAfrica />} />
+        <Route path="/countries/Egypt" element={<Egypt />} />
+        <Route path="/countries/Morocco" element={<Morocco />} />
+        <Route path="/countries/Ghana" element={<Ghana />} />
+        <Route path="/countries/Ethiopia" element={<Ethiopia />} />
+        <Route path="/countries/Tanzania" element={<Tanzania />} />
+        <Route path="/countries/Senegal" element={<Senegal />} />
+        <Route path="/countries/Algeria" element={<Algeria />} />
+        <Route path="/countries/Uganda" element={<Uganda />} />
+        <Route path="/countries/Namibia" element={<Namibia />} />
+        <Route path="/countries/United%20States" element={<UnitedStates />} />
+        <Route path="/countries/United-States" element={<UnitedStates />} />
+        <Route path="/countries/Canada" element={<Canada />} />
+        <Route path="/countries/Mexico" element={<Mexico />} />
+        <Route path="/countries/Cuba" element={<Cuba />} />
+        <Route path="/countries/Jamaica" element={<Jamaica />} />
+        <Route path="/countries/Costa%20Rica" element={<CostaRica />} />
+        <Route path="/countries/Costa-Rica" element={<CostaRica />} />
+        <Route path="/countries/Panama" element={<Panama />} />
+        <Route path="/countries/Bahamas" element={<Bahamas />} />
+        <Route path="/countries/The%20Bahamas" element={<Bahamas />} />
+        <Route path="/countries/The-Bahamas" element={<Bahamas />} />
+        <Route path="/countries/Honduras" element={<Honduras />} />
+        <Route path="/countries/Dominican%20Republic" element={<DominicanRepublic />} />
+        <Route path="/countries/Dominican-Republic" element={<DominicanRepublic />} />
+        <Route path="/countries/Argentina" element={<Argentina />} />
+        <Route path="/countries/Chile" element={<Chile />} />
+        <Route path="/countries/Colombia" element={<Colombia />} />
+        <Route path="/countries/Peru" element={<Peru />} />
+        <Route path="/countries/Uruguay" element={<Uruguay />} />
+        <Route path="/countries/Paraguay" element={<Paraguay />} />
+        <Route path="/countries/Ecuador" element={<Ecuador />} />
+        <Route path="/countries/Bolivia" element={<Bolivia />} />
+        <Route path="/countries/Venezuela" element={<Venezuela />} />
 
       </Routes>
     </Router>

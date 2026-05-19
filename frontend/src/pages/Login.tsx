@@ -7,10 +7,38 @@ export default function Login() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const [isLoading, setIsLoading] = useState(false);
+  const [errorMsg, setErrorMsg] = useState("");
+
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    // TODO: Send login request to backend here
-    navigate("/explore"); // On success, go to explore
+    setErrorMsg("");
+    setIsLoading(true);
+
+    try {
+      const response = await fetch("http://localhost:8080/api/auth/login", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ email, password }),
+      });
+
+      if (response.ok) {
+        // Successful login, save email to local storage
+        const data = await response.json();
+        localStorage.setItem("userEmail", data.email || email);
+        navigate("/explore");
+      } else {
+        const errorData = await response.text();
+        setErrorMsg(errorData || "Invalid email or password");
+      }
+    } catch (error) {
+      console.error("Login error:", error);
+      setErrorMsg("Unable to connect to the server. Is the backend running?");
+    } finally {
+      setIsLoading(false);
+    }
   };
 
   return (
@@ -35,6 +63,12 @@ export default function Login() {
           </div>
 
           <form onSubmit={handleSubmit} className="space-y-6">
+            {errorMsg && (
+              <div className="p-3 bg-red-100 text-red-700 border border-red-300 rounded-xl text-sm font-medium">
+                {errorMsg}
+              </div>
+            )}
+            
             <div>
               <label className="block text-sm font-semibold text-slate-900 mb-2">
                 Email Address
@@ -69,9 +103,10 @@ export default function Login() {
 
             <button
               type="submit"
-              className="w-full py-4 bg-slate-900 text-white font-bold rounded-xl hover:bg-slate-800 transition-all duration-300 shadow-lg hover:shadow-xl hover:-translate-y-0.5"
+              disabled={isLoading}
+              className="w-full py-4 bg-slate-900 text-white font-bold rounded-xl hover:bg-slate-800 transition-all duration-300 shadow-lg hover:shadow-xl hover:-translate-y-0.5 disabled:opacity-70 disabled:cursor-not-allowed"
             >
-              Sign In
+              {isLoading ? "Signing In..." : "Sign In"}
             </button>
           </form>
 

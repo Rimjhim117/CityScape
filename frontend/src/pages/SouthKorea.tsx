@@ -1,90 +1,141 @@
-import React from 'react';
-import { useNavigate, Link } from 'react-router-dom';
+// src/pages/SouthKorea.tsx
+import React from "react";
+import { useNavigate, useLocation } from "react-router-dom";
+import { MapPin, Landmark, ShoppingBag } from "lucide-react";
 
 const SouthKorea = () => {
   const navigate = useNavigate();
+  const location = useLocation();
+  const params = new URLSearchParams(location.search);
+  const continent = params.get("continent") || "asia";
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-blue-50 via-indigo-100 to-pink-100">
-      {/* Hero Section */}
-      <div className="relative h-[60vh]">
+    <div className="min-h-screen bg-gradient-to-br from-blue-50 via-white to-red-50">
+      {/* Hero */}
+      <div className="relative h-screen">
         <img
-          src="/assets/South-Korea.jpg"
+          src="/assets/South-ksorea.jpg"
           alt="South Korea"
           className="w-full h-full object-cover"
         />
-        <div className="absolute inset-0 bg-black bg-opacity-40 flex items-center justify-center">
-          <h1 className="text-5xl md:text-6xl font-bold text-white">
-            Soul of South Korea
+        <div className="absolute inset-0 bg-black/40 flex flex-col items-center justify-center text-center px-6">
+          <h1 className="text-6xl md:text-7xl font-extrabold text-white drop-shadow-lg">
+            South Korea
           </h1>
+          <p className="text-lg md:text-xl text-white/90 mt-6 max-w-3xl">
+            A dynamic country where tranquil ancient palaces exist side-by-side with high-tech, futuristic cities.
+          </p>
         </div>
       </div>
 
-      {/* About Section */}
-      <section className="px-6 md:px-20 py-10">
-        <h2 className="text-3xl font-semibold mb-4">About South Korea</h2>
-        <p className="text-lg mb-6">
-          South Korea is a dynamic blend of ancient heritage and modern innovation. From the
-          high-tech streets of Seoul to serene temples and scenic mountains, the country offers a
-          unique mix of tradition and trendsetting culture.
-        </p>
+      <div className="px-6 md:px-20 py-16 space-y-20">
+        {/* About */}
+        <section>
+          <h2 className="text-4xl font-bold text-blue-900 mb-6">About South Korea</h2>
+          <p className="text-gray-700 text-lg leading-relaxed max-w-4xl">
+            South Korea is known for its incredibly fast-paced, high-tech culture, juxtaposed beautifully
+            with deep-rooted traditions. It is a land of green, hilly countryside dotted with cherry trees
+            and centuries-old Buddhist temples, alongside coastal fishing villages and massive, glowing metropolises.
+          </p>
+        </section>
 
         {/* Top Cities */}
-        <h3 className="text-2xl font-semibold mt-10 mb-4">Top Cities to Visit</h3>
-        <ul className="space-y-2 mb-6">
-          <li>
-            <Link to="/cities/seoul" className="text-blue-600 hover:underline">
-              Seoul – Vibrant capital filled with palaces, K-pop, and street food
-            </Link>
-          </li>
-          <li>
-            <Link to="/cities/busan" className="text-blue-600 hover:underline">
-              Busan – Coastal city known for beaches and seafood
-            </Link>
-          </li>
-          <li>
-            <Link to="/cities/jeju" className="text-blue-600 hover:underline">
-              Jeju Island – Volcanic island with nature and waterfalls
-            </Link>
-          </li>
-          <li>
-            <Link to="/cities/daegu" className="text-blue-600 hover:underline">
-              Daegu – City of fashion and traditional medicine
-            </Link>
-          </li>
-          <li>
-            <Link to="/cities/gyeongju" className="text-blue-600 hover:underline">
-              Gyeongju – Open-air museum of historical sites
-            </Link>
-          </li>
-        </ul>
+        <section>
+          <h3 className="text-3xl font-semibold text-blue-800 mb-10 flex items-center gap-2">
+            <MapPin className="w-7 h-7" /> Top Cities
+          </h3>
+          <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-8">
+            {[
+              { name: "Seoul", desc: "The massive, 24/7 capital city blending modern skyscrapers with ancient palaces." },
+              { name: "Busan", desc: "A large port city known for its beaches, mountains, and spectacular seafood." },
+              { name: "Incheon", desc: "A bustling coastal city featuring an ultra-modern airport and a vibrant Chinatown." },
+              { name: "Jeju City", desc: "The capital of Jeju Island, famous for volcanic landscapes and beach resorts." },
+              { name: "Gyeongju", desc: "The 'Museum Without Walls', known for extensive ruins of the ancient Silla kingdom." },
+            ].map((city) => (
+              <div
+                key={city.name}
+                className="bg-white rounded-2xl shadow-md p-6 hover:shadow-xl transition"
+              >
+                <h4 className="font-bold text-xl text-blue-900">{city.name}</h4>
+                <p className="text-gray-600 mt-2">{city.desc}</p>
+              </div>
+            ))}
+          </div>
+        </section>
 
         {/* Attractions */}
-        <h3 className="text-2xl font-semibold mt-10 mb-4">Famous Attractions</h3>
-        <ul className="list-disc list-inside mb-6">
-          <li>Gyeongbokgung Palace – Royal palace in the heart of Seoul</li>
-          <li>N Seoul Tower – Panoramic city views from the top</li>
-          <li>Hanok Villages – Traditional Korean houses in Bukchon</li>
-          <li>Jeju’s Hallasan – South Korea’s highest mountain</li>
-          <li>DMZ – A glimpse into the border between North and South Korea</li>
-        </ul>
+        <section>
+          <h3 className="text-3xl font-semibold text-blue-800 mb-10 flex items-center gap-2">
+            <Landmark className="w-7 h-7" /> Famous Attractions
+          </h3>
+          <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-8">
+            {[
+              { title: "Gyeongbokgung Palace", desc: "The grandest of Seoul's five ancient royal palaces." },
+              { title: "N Seoul Tower", desc: "An iconic communication and observation tower offering panoramic views of Seoul." },
+              { title: "Bukchon Hanok Village", desc: "A beautifully preserved traditional Korean village in the heart of the city." },
+              { title: "Jeju Volcanic Island", desc: "A stunning UNESCO World Heritage site with lava tubes and unique geology." },
+              { title: "DMZ (Demilitarized Zone)", desc: "The heavily fortified border separating North and South Korea." },
+            ].map((attraction) => (
+              <div
+                key={attraction.title}
+                className="bg-white rounded-2xl shadow-md p-6 hover:shadow-xl transition"
+              >
+                <h4 className="font-bold text-lg text-blue-900">
+                  {attraction.title}
+                </h4>
+                <p className="text-gray-600 mt-2">{attraction.desc}</p>
+              </div>
+            ))}
+          </div>
+        </section>
 
-        {/* Local Goods */}
-        <h3 className="text-2xl font-semibold mt-10 mb-4">Local Goods & Markets</h3>
-        <p className="text-lg mb-6">
-          Discover Korean skincare products, hanbok (traditional clothing), K-pop merchandise, and
-          handmade crafts. Visit places like Namdaemun Market and Myeongdong Street for an authentic
-          local shopping experience.
-        </p>
+        {/* Local Goods & Markets */}
+        <section>
+          <h3 className="text-3xl font-semibold text-blue-800 mb-10 flex items-center gap-2">
+            <ShoppingBag className="w-7 h-7" /> Local Goods & Markets
+          </h3>
+
+          <ul className="space-y-4 text-gray-700 text-lg">
+            <li>
+              <span className="font-semibold text-blue-900">🧴 K-Beauty Products:</span>{" "}
+              World-leading skincare and cosmetics known for innovative ingredients and high quality.
+            </li>
+            <li>
+              <span className="font-semibold text-blue-900">🌿 Ginseng:</span>{" "}
+              High-grade Korean red ginseng, prized globally for its health and medicinal properties.
+            </li>
+            <li>
+              <span className="font-semibold text-blue-900">🍵 Traditional Tea Sets:</span>{" "}
+              Beautifully crafted celadon and porcelain ceramics used in traditional Korean tea ceremonies.
+            </li>
+            <li>
+              <span className="font-semibold text-blue-900">👗 Hanbok:</span>{" "}
+              The stunning, brightly colored traditional Korean attire, often tailored custom for visitors.
+            </li>
+            <li>
+              <span className="font-semibold text-blue-900">🌶️ Gochujang & Kimchi:</span>{" "}
+              The essential, deeply flavorful fermented pastes and vegetables that define Korean cuisine.
+            </li>
+          </ul>
+
+          <p className="text-gray-700 text-lg mt-8 max-w-4xl leading-relaxed">
+            Shopping in South Korea is a serious pastime. Visit the sprawling, endless stalls of Namdaemun
+            Market for traditional goods and incredible street food, or explore the trendy, cosmetic-filled
+            streets of Myeongdong.
+          </p>
+        </section>
 
         {/* Back Button */}
-        <button
-          onClick={() => navigate('/country/asia')}
-          className="bg-gradient-to-r from-indigo-500 to-pink-400 text-white px-6 py-2 rounded-xl shadow-md hover:scale-105 transition"
-        >
-          ← Back to Countries
-        </button>
-      </section>
+        <div className="text-center">
+          <button
+            onClick={() => navigate(`/country/${continent}`)}
+            className="bg-gradient-to-r from-blue-600 to-red-500 text-white px-8 py-3 rounded-xl text-lg font-semibold shadow-md hover:scale-105 transition"
+            style={{ textShadow: "1px 1px 3px rgba(0,0,0,0.8)" }}
+          >
+            ← Back to Countries
+          </button>
+        </div>
+      </div>
     </div>
   );
 };

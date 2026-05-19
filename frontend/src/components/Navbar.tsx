@@ -43,16 +43,37 @@ export default function Navbar() {
 
           <div className="w-px h-6 bg-slate-200 mx-3"></div>
 
-          <Link to="/login">
-            <button className="px-5 py-2 text-sm font-semibold text-slate-700 hover:text-slate-900 transition-colors duration-200">
-              Log in
-            </button>
-          </Link>
-          <Link to="/signup">
-            <button className="px-5 py-2.5 text-sm font-semibold text-white bg-slate-900 rounded-xl hover:bg-slate-800 transition-all duration-200 shadow-sm hover:shadow-md">
-              Sign Up
-            </button>
-          </Link>
+          {localStorage.getItem("userEmail") ? (
+            <>
+              <Link to="/profile">
+                <button className="px-5 py-2 text-sm font-semibold text-slate-700 hover:text-slate-900 transition-colors duration-200">
+                  Profile
+                </button>
+              </Link>
+              <button
+                onClick={() => {
+                  localStorage.removeItem("userEmail");
+                  window.location.href = "/";
+                }}
+                className="px-5 py-2.5 text-sm font-semibold text-white bg-red-600 rounded-xl hover:bg-red-700 transition-all duration-200 shadow-sm hover:shadow-md"
+              >
+                Logout
+              </button>
+            </>
+          ) : (
+            <>
+              <Link to="/login">
+                <button className="px-5 py-2 text-sm font-semibold text-slate-700 hover:text-slate-900 transition-colors duration-200">
+                  Log in
+                </button>
+              </Link>
+              <Link to="/signup">
+                <button className="px-5 py-2.5 text-sm font-semibold text-white bg-slate-900 rounded-xl hover:bg-slate-800 transition-all duration-200 shadow-sm hover:shadow-md">
+                  Sign Up
+                </button>
+              </Link>
+            </>
+          )}
         </div>
 
         {/* Mobile Menu Button */}

@@ -10,16 +10,48 @@ export default function SignUp() {
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const [isLoading, setIsLoading] = useState(false);
+  const [errorMsg, setErrorMsg] = useState("");
+
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    setErrorMsg("");
 
     if (password !== confirmPassword) {
-      alert("Passwords do not match!");
+      setErrorMsg("Passwords do not match!");
       return;
     }
 
-    // TODO: Send signup request to Spring Boot backend
-    navigate("/explore"); // On successful registration
+    setIsLoading(true);
+
+    try {
+      const response = await fetch("http://localhost:8080/api/auth/signup", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          name,
+          email,
+          phone,
+          password,
+        }),
+      });
+
+      if (response.ok) {
+        // Successfully registered, save email to local storage
+        localStorage.setItem("userEmail", email);
+        navigate("/explore");
+      } else {
+        const errorData = await response.text();
+        setErrorMsg(errorData || "Signup failed. Please try again.");
+      }
+    } catch (error) {
+      console.error("Error during signup:", error);
+      setErrorMsg("Unable to connect to the server. Is the backend running?");
+    } finally {
+      setIsLoading(false);
+    }
   };
 
   return (
@@ -44,6 +76,12 @@ export default function SignUp() {
           </div>
 
           <form onSubmit={handleSubmit} className="space-y-5">
+            {errorMsg && (
+              <div className="p-3 bg-red-100 text-red-700 border border-red-300 rounded-xl text-sm font-medium">
+                {errorMsg}
+              </div>
+            )}
+            
             <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
               <div>
                 <label className="block text-sm font-semibold text-slate-900 mb-2">
@@ -117,9 +155,10 @@ export default function SignUp() {
 
             <button
               type="submit"
-              className="w-full py-4 mt-4 bg-slate-900 text-white font-bold rounded-xl hover:bg-slate-800 transition-all duration-300 shadow-lg hover:shadow-xl hover:-translate-y-0.5"
+              disabled={isLoading}
+              className="w-full py-4 mt-4 bg-slate-900 text-white font-bold rounded-xl hover:bg-slate-800 transition-all duration-300 shadow-lg hover:shadow-xl hover:-translate-y-0.5 disabled:opacity-70 disabled:cursor-not-allowed"
             >
-              Sign Up
+              {isLoading ? "Creating Account..." : "Sign Up"}
             </button>
           </form>
 

@@ -10,7 +10,7 @@ const countryImages: Record<string, string> = {
   "Sri Lanka": "Sri-Lanka.jpg", "Bangladesh": "Bangladesh.jpg",
   "China": "China.jpg", "Singapore": "Singapour.jpg", "Bhutan": "Bhutan.jpg",
   "South Korea": "South-korea.jpg", "Uzbekistan": "Uzbekistan.jpg",
-  "France": "France.jpg", "Italy": "Italy.jpg", "Germany": "Geremany.jpg",
+  "France": "France.jpg", "Italy": "Italy.jpg", "Germany": "Germany.jpg",
   "Spain": "Spain.jpg", "Greece": "Greeze.jpg", "Netherlands": "Netherland.jpg",
   "Portugal": "Portugal.jpg", "Switzerland": "Switzerland.jpg",
   "Austria": "Austria.jpg", "Norway": "Norway.jpg",
