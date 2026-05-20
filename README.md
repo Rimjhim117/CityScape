@@ -1,4 +1,4 @@
-# 🌍 CityScape — Marketplace for Local Goods
+#  CityScape — Marketplace for Local Goods
 
 **Premium Global Discovery & Local Commerce Platform**
 
@@ -12,7 +12,7 @@
 
 ---
 
-## 📋 Table of Contents
+## Table of Contents
 
 - [Overview](#overview)
 - [Architecture](#architecture)
@@ -28,7 +28,7 @@
 
 ---
 
-## 🎯 Overview
+##  Overview
 
 **CityScape** is a beautifully designed, responsive web application that reimagines how users explore the world. From the vibrant streets of Tokyo to the romantic canals of Venice, CityScape provides an immersive UI/UX that blends rich photography with practical local shopping features.
 
@@ -36,7 +36,7 @@ The platform is powered by a high-performance **React** frontend using Vite, bac
 
 ---
 
-## 🏗️ Architecture
+##  Architecture
 
 ```text
 ┌─────────────────────────┐
@@ -56,25 +56,25 @@ The platform is powered by a high-performance **React** frontend using Vite, bac
 
 ---
 
-## ✨ Features
+##  Features
 
-### 🎨 Immersive UI/UX Design
+### Immersive UI/UX Design
 - **Glassmorphism**: Premium frosted-glass UI elements overlaying rich photography.
 - **Dynamic Routing**: Instant navigation across continents (Europe, Asia, Oceania) and individual countries.
 - **Micro-Animations**: Smooth hover effects, scaling cards, and blob background animations.
 
-### 🔐 Secure User Authentication
+### Secure User Authentication
 - **RESTful Login/Signup**: Fast and responsive backend communication.
 - **Persistent Sessions**: Secure `localStorage` integration keeps users logged in across the platform.
 - **Dynamic Navigation**: Navbar seamlessly transforms to show "Profile" and "Logout" states.
 
-### 🛍️ Local Commerce Integration
+###  Local Commerce Integration
 - **Cultural Exploration**: Discover top cities, famous landmarks, and regional highlights.
 - **Local Goods**: Explore curated authentic products tied directly to specific global regions.
 
 ---
 
-## 🛠️ Tech Stack
+## Tech Stack
 
 ```text
 Frontend       : React 18, Vite, TypeScript
@@ -90,7 +90,7 @@ Build Tool     : Maven Wrapper (mvnw)
 
 ---
 
-## 📦 Installation
+##  Installation
 
 ### Prerequisites
 - **Node.js** (v18+)
@@ -141,7 +141,7 @@ npm run dev
 
 ---
 
-## 📡 API Endpoints
+##  API Endpoints
 
 | Method | Endpoint | Description |
 |--------|----------|-------------|
@@ -204,14 +204,12 @@ spring.jpa.hibernate.ddl-auto=update
 
 ---
 
-## 🤝 Contributing
-
 Developed by:
 - **Rimjhim** — [@Rimjhim117](https://github.com/Rimjhim117)
 
 ---
 
-## 📝 License
+##  License
 
 MIT License — see [LICENSE](LICENSE) for details.
 
