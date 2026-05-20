@@ -130,7 +130,7 @@ npm run dev
 
 ---
 
-## 🚀 Usage
+##  Usage
 
 ### Platform Flow
 
@@ -161,7 +161,7 @@ npm run dev
 
 ---
 
-## 📁 Project Structure
+##  Project Structure
 
 ```text
 MarketPlace/
@@ -216,5 +216,5 @@ MIT License — see [LICENSE](LICENSE) for details.
 ---
 
 <div align="center">
-Made with ❤️ for Global Explorers
+Made for Global Explorers
 </div>
