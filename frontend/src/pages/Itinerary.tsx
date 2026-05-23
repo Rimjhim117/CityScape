@@ -4,7 +4,8 @@ import ReactMarkdown from "react-markdown";
 import Navbar from "../components/Navbar";
 
 export default function Itinerary() {
-  const [destination, setDestination] = useState("");
+  const [country, setCountry] = useState("");
+  const [city, setCity] = useState("");
   const [days, setDays] = useState(3);
   const [preferences, setPreferences] = useState("");
   const [itinerary, setItinerary] = useState("");
@@ -13,14 +14,16 @@ export default function Itinerary() {
 
   const handleGenerate = async (e: React.FormEvent) => {
     e.preventDefault();
-    if (!destination) {
-      setError("Please enter a destination.");
+    if (!country) {
+      setError("Please enter a country.");
       return;
     }
 
     setLoading(true);
     setError("");
     setItinerary("");
+
+    const destination = city ? `${city}, ${country}` : country;
 
     try {
       const response = await fetch("http://localhost:8080/api/itinerary/generate", {
@@ -87,16 +90,30 @@ export default function Itinerary() {
 
               <div className="space-y-5">
                 <div>
-                  <label className="block text-sm font-semibold text-slate-700 mb-2">Destination</label>
+                  <label className="block text-sm font-semibold text-slate-700 mb-2">Country</label>
                   <div className="relative">
                     <MapPin className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-slate-400" />
                     <input
                       type="text"
-                      value={destination}
-                      onChange={(e) => setDestination(e.target.value)}
-                      placeholder="e.g., Paris, Tokyo, Bali"
+                      value={country}
+                      onChange={(e) => setCountry(e.target.value)}
+                      placeholder="e.g., France, Japan, India"
                       className="w-full pl-12 pr-4 py-3 bg-slate-50 border border-slate-200 rounded-xl focus:ring-2 focus:ring-purple-500 focus:border-transparent outline-none transition-all"
                       required
+                    />
+                  </div>
+                </div>
+
+                <div>
+                  <label className="block text-sm font-semibold text-slate-700 mb-2">City (Optional)</label>
+                  <div className="relative">
+                    <MapPin className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-slate-300" />
+                    <input
+                      type="text"
+                      value={city}
+                      onChange={(e) => setCity(e.target.value)}
+                      placeholder="e.g., Paris, Tokyo, Mumbai"
+                      className="w-full pl-12 pr-4 py-3 bg-slate-50 border border-slate-200 rounded-xl focus:ring-2 focus:ring-purple-500 focus:border-transparent outline-none transition-all"
                     />
                   </div>
                 </div>

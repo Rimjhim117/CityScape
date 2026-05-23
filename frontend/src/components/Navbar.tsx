@@ -1,14 +1,20 @@
 import React, { useState } from "react";
 import { Link, useLocation } from "react-router-dom";
+import { useCart } from "../context/CartContext";
+import { ShoppingBag } from "lucide-react";
 
 export default function Navbar() {
   const [mobileOpen, setMobileOpen] = useState(false);
   const location = useLocation();
 
+  const { cartCount } = useCart();
+
   const navLinks = [
     { to: "/", label: "Home" },
     { to: "/explore", label: "Explore" },
+    { to: "/shop", label: "Shop" },
     { to: "/itinerary", label: "AI Itinerary" },
+    { to: "/tools", label: "Travel Tools" },
     { to: "/about", label: "About" },
     { to: "/contact", label: "Contact" },
   ];
@@ -43,6 +49,17 @@ export default function Navbar() {
           ))}
 
           <div className="w-px h-6 bg-slate-200 mx-3"></div>
+
+          <Link to="/cart" className="relative p-2 text-slate-600 hover:text-purple-600 transition-colors duration-200 mr-2">
+            <ShoppingBag className="w-6 h-6" />
+            {cartCount > 0 && (
+              <span className="absolute top-0 right-0 inline-flex items-center justify-center px-2 py-1 text-xs font-bold leading-none text-white transform translate-x-1/4 -translate-y-1/4 bg-red-600 rounded-full">
+                {cartCount}
+              </span>
+            )}
+          </Link>
+
+          <div className="w-px h-6 bg-slate-200 mx-3 mr-4"></div>
 
           {localStorage.getItem("userEmail") ? (
             <>

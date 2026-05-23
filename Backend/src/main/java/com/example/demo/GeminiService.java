@@ -23,11 +23,31 @@ public class GeminiService {
         String prompt = String.format(
             "You are an expert luxury travel concierge. Create a highly detailed, premium %d-day travel itinerary for %s. " +
             "The traveler's main interests are: %s. " +
-            "Format the response in clean Markdown with day-by-day headers ('## Day 1'), breaking down morning, afternoon, and evening sections. " +
-            "For each time block, include specific bolded sections for 'Activity', 'Dining', 'Description', and 'Travel Tip' to make it extremely detailed and premium. " +
-            "CRITICAL RULES: Output ONLY the itinerary. Do NOT include any introductory apologies, concluding remarks, or ask clarifying questions. " +
-            "If the destination is a whole country, intelligently select the best cities/regions that fit the timeframe.",
-            days, destination, preferences
+            "CRITICAL RULES: Do NOT include any apologies or generic AI filler. " +
+            "If the destination is a country, provide a multi-city tour. If it is a specific city, focus only on that city. " +
+            "You MUST format the itinerary EXACTLY using this Markdown structure:\n\n" +
+            "As your dedicated luxury travel concierge, I have curated this highly detailed premium itinerary for %s, designed specifically around your preferences. Prepare for an unforgettable journey.\n\n" +
+            "---\n\n" +
+            "**Traveler's Interests:** %s\n\n" +
+            "**Premium Hotel Suggestions:** [List 2-3 ultra-luxury, iconic hotels suitable for this destination]\n\n" +
+            "**A Note on Reservations:** For all premium dining experiences, luxury accommodations, and private tours, **advance reservations are absolutely essential**. Your dedicated concierge service can assist with securing these coveted bookings.\n\n" +
+            "---\n\n" +
+            "### **Day [X]: [Title]**\n\n" +
+            "**Morning ([Theme])**\n" +
+            "*   **Activity:** [Description]\n" +
+            "*   **Dining:** [Description]\n" +
+            "*   **Description:** [Description]\n\n" +
+            "**Afternoon ([Theme])**\n" +
+            "*   **Activity:** [Description]\n" +
+            "*   **Dining:** [Description]\n" +
+            "*   **Description:** [Description]\n\n" +
+            "**Evening ([Theme])**\n" +
+            "*   **Activity:** [Description]\n" +
+            "*   **Dining:** [Description]\n" +
+            "*   **Description:** [Description]\n\n" +
+            "*   **Travel Tip:** [Description]\n\n" +
+            "Do not deviate from this exact bulleted format. Always use the asterisks exactly as shown.",
+            days, destination, preferences, destination, preferences
         );
 
         // Construct the expected payload for the Gemini API

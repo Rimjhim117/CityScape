@@ -1,5 +1,10 @@
 import React from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { CartProvider } from "./context/CartContext";
+import Shop from "./pages/Shop";
+import Cart from "./pages/Cart";
+import Checkout from "./pages/Checkout";
+import TravelTools from "./pages/TravelTools";
 import Home from "./pages/Home";
 import Explore from "./pages/Explore";
 import About from "./pages/About"; 
@@ -86,9 +91,14 @@ import Venezuela from "./pages/Venezuela";
 
 function App() {
   return (
-    <Router>
-      <Routes>
-        <Route path="/" element={<Home />} />
+    <CartProvider>
+      <Router>
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/shop" element={<Shop />} />
+          <Route path="/cart" element={<Cart />} />
+          <Route path="/checkout" element={<Checkout />} />
+          <Route path="/tools" element={<TravelTools />} />
         <Route path="/explore" element={<Explore />} />
         <Route path="/about" element={<About />} />
         <Route path="/login" element={<Login />} />
@@ -180,6 +190,7 @@ function App() {
 
       </Routes>
     </Router>
+    </CartProvider>
   );
 }
 
