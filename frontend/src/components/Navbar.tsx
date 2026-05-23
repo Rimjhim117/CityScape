@@ -8,6 +8,7 @@ export default function Navbar() {
   const navLinks = [
     { to: "/", label: "Home" },
     { to: "/explore", label: "Explore" },
+    { to: "/itinerary", label: "AI Itinerary" },
     { to: "/about", label: "About" },
     { to: "/contact", label: "Contact" },
   ];

@@ -9,6 +9,7 @@ import Profile from "./pages/Profile";
 import Marketplace from "./pages/Marketplace";
 import Continents from "./pages/Continents";
 import Contact from "./pages/Contact";
+import Itinerary from "./pages/Itinerary";
 import Country from "./pages/Country";
 import India from "./pages/India";
 import Japan from "./pages/Japan";
@@ -95,6 +96,7 @@ function App() {
         <Route path="/marketplace" element={<Marketplace />} />
         <Route path="/continents" element={<Continents />} />
         <Route path="/contact" element={<Contact />} />
+        <Route path="/itinerary" element={<Itinerary />} />
         <Route path="/country/:continent" element={<Country />} />
         <Route path="/profile" element={<Profile />} />
         <Route path="/countries/India" element={<India />} />
