@@ -63,14 +63,18 @@ The platform is powered by a high-performance **React** frontend using Vite, bac
 - **Dynamic Routing**: Instant navigation across continents (Europe, Asia, Oceania) and individual countries.
 - **Micro-Animations**: Smooth hover effects, scaling cards, and blob background animations.
 
+###  AI-Powered Travel Planning
+- **Gemini AI Integration**: Generate personalized, day-by-day travel itineraries based on user preferences.
+- **Real-Time Travel Tools**: Live Weather forecasts (Open-Meteo) and real-time Currency Conversion (ExchangeRate-API).
+
 ### Secure User Authentication
 - **RESTful Login/Signup**: Fast and responsive backend communication.
 - **Persistent Sessions**: Secure `localStorage` integration keeps users logged in across the platform.
-- **Dynamic Navigation**: Navbar seamlessly transforms to show "Profile" and "Logout" states.
 
-###  Local Commerce Integration
-- **Cultural Exploration**: Discover top cities, famous landmarks, and regional highlights.
-- **Local Goods**: Explore curated authentic products tied directly to specific global regions.
+###  Global E-Commerce
+- **Curated Local Goods**: Explore authentic products tied directly to specific global regions.
+- **Shopping Cart System**: Add to cart, adjust quantities, and view real-time subtotal calculations via global React Context.
+- **Secure Checkout Mock**: Simulated payment gateway connected to the Spring Boot REST API for transaction processing.
 
 ---
 
@@ -81,6 +85,8 @@ Frontend       : React 18, Vite, TypeScript
 Styling        : Tailwind CSS
 Icons          : Lucide-React
 Routing        : React Router DOM (v6)
+State Mgmt     : React Context API
+APIs           : Google Gemini AI, Open-Meteo, ExchangeRate-API
 
 Backend        : Spring Boot 3.4.0 (Java 17)
 Database       : H2 In-Memory Database (zero-config)
@@ -107,10 +113,13 @@ cd Market-Place-for-Local-Goods
 # Navigate to the Backend folder
 cd Backend
 
+# Create your environment variables file
+echo "GEMINI_API_KEY=your_api_key_here" > .env
+
 # Run the Spring Boot server using the Maven wrapper
 .\mvnw spring-boot:run
 ```
-*The API will start automatically on `http://localhost:8080`.*
+*The API will start automatically on `http://localhost:8080`. The `.env` file will be automatically loaded by `spring-dotenv`.*
 
 ### 2. Start the Frontend (React)
 
