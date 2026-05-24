@@ -16,7 +16,8 @@ export default function Checkout() {
     setError("");
 
     try {
-      const response = await fetch("http://localhost:8080/api/checkout", {
+      const API_URL = import.meta.env.VITE_API_URL || "http://localhost:8080";
+      const response = await fetch(`${API_URL}/api/checkout`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ items: cartItems, total: cartTotal * 1.08 }),
